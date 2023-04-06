@@ -48,26 +48,39 @@ defmodule Eleetxir.Leetcode.MergeTripletsFindTarget do
   end
 
   defp compare_triplets([first_triplet | remaining], target, counter) do
-    if first_triplet != target do
-      [second_triplet | unevaluated] = remaining
+    max_triplets = compare_values(first_triplet, remaining, target)
 
-      new_triplet = compare_values(first_triplet, second_triplet, target)
+    cond do
+      first_triplet == target ->
+        true
 
-      compare_triplets([new_triplet | unevaluated], target, counter - 1)
-    else
-      true
+      true in max_triplets ->
+        true
+
+      true ->
+        compare_triplets(max_triplets, target, counter - 1)
     end
   end
 
-  defp compare_values(first_triplet, second_triplet, target) do
-    Enum.zip([first_triplet, second_triplet, target])
-    |> Enum.map(fn {first, second, target} ->
-      cond do
-        first == target -> target
-        second == target -> target
-        first >= second -> first
-        true -> second
-      end
+  # defp compare_values(first_triplet, second_triplet, target) do
+  #   Enum.zip([first_triplet, second_triplet, target])
+  #   |> Enum.map(fn {first, second, target} ->
+  #     cond do
+  #       first == target -> target
+  #       second == target -> target
+  #       first >= second -> first
+  #       true -> second
+  #     end
+  #   end)
+  # end
+
+  defp compare_values([a, b, c] = _first_triplet, remaining_triplets, target) do
+    Enum.map(remaining_triplets, fn [x, y, z] ->
+      max = [max(a, x), max(b, y), max(c, z)]
+
+      if max == target,
+        do: true,
+        else: max
     end)
   end
 end
