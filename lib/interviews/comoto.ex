@@ -17,6 +17,7 @@ defmodule Interviews.Comoto do
     - when divisble by 7, 5, & 3 = pizza party!
   """
 
+  @spec print_range(start :: integer(), stop :: integer()) :: :ok
   def print_range(start, stop) do
     Enum.to_list(start..stop)
     |> Enum.each(fn num -> fizzbuzz(num) end)
