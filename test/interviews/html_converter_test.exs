@@ -1,7 +1,7 @@
 defmodule Eleetxir.Interviews.HtmlConverterTest do
   use ExUnit.Case
 
-  import Eleetxir.Interviews.HtmlConverter
+  # import Eleetxir.Interviews.HtmlConverter
 
   #   describe "convert/1" do
   #     test "should return string that contains input value wrapped in html" do
