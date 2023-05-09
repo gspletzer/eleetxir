@@ -26,29 +26,29 @@ defmodule Interviews.Comoto do
   def fizzbuzz(num) do
     cond do
       rem(num, 7) == 0 && rem(num, 5) == 0 && rem(num, 3) == 0 ->
-        IO.puts("pizza party!")
+        IO.write("pizza party!")
 
       rem(num, 7) == 0 && rem(num, 5) == 0 ->
-        IO.puts("buzzpop")
+        IO.write("buzzpop")
 
       rem(num, 7) == 0 && rem(num, 3) == 0 ->
-        IO.puts("fizzpop")
+        IO.write("fizzpop")
 
       rem(num, 5) == 0 && rem(num, 3) == 0 ->
-        IO.puts("fizzbuzz")
+        IO.write("fizzbuzz")
 
       rem(num, 7) == 0 ->
-        IO.puts("pop")
+        IO.write("pop")
 
       rem(num, 5) == 0 ->
-        IO.puts("buzz")
+        IO.write("buzz")
 
       rem(num, 3) == 0 ->
-        IO.puts("fizz")
+        IO.write("fizz")
 
       true ->
         string = Integer.to_string(num)
-        IO.puts(string)
+        IO.write(string)
     end
   end
 end
