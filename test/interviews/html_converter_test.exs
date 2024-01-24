@@ -7,7 +7,7 @@ defmodule Eleetxir.Interviews.HtmlConverterTest do
   #     test "should return string that contains input value wrapped in html" do
   #       input = "This is a paragraph.
 
-  # And this is na paragraph that has
+  # And this is a paragraph that has
   # some line breaks and a blockquote
   # > in the latter half, and nothing
   # > else besides some more filler.

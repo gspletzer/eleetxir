@@ -10,8 +10,8 @@ defmodule Leetcode.EncodeDecodeTest do
     end
 
     test "should return encoded string for non alpha characters" do
-      input = ["4s6", "d@t3", "c*%@"]
-      assert "NHM2;ZEB0Mw==;YyolQA==;" == encode(input)
+      input = ["4s6", "d@t3", "c*%@", "1;3", "Hello world!"]
+      assert "NHM2;ZEB0Mw==;YyolQA==;MTsz;SGVsbG8gd29ybGQh;" == encode(input)
     end
   end
 
@@ -22,8 +22,8 @@ defmodule Leetcode.EncodeDecodeTest do
     end
 
     test "should return decoded list of strings with non-alpha characters" do
-      input = "NHM2;ZEB0Mw==;YyolQA==;"
-      assert ["4s6", "d@t3", "c*%@"] == decode(input)
+      input = "NHM2;ZEB0Mw==;YyolQA==;MTsz;SGVsbG8gd29ybGQh;"
+      assert ["4s6", "d@t3", "c*%@", "1;3", "Hello world!"] == decode(input)
     end
   end
 
@@ -37,7 +37,7 @@ defmodule Leetcode.EncodeDecodeTest do
     end
 
     test "should return original input with non-alpha characters" do
-      input = ["4s6", "d@t3", "c*%@"]
+      input = ["4s6", "d@t3", "c*%@", "1;3", "Hello world!"]
 
       result = encode(input) |> decode()
 
